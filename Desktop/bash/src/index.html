@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HashPhone - 해시테이블로 만드는 전화번호부</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/visualizer.css">
+</head>
+<body>
+  <div id="app">
+    <header class="control-panel">
+      <div class="app-title">
+        <h1>#HashPhone</h1>
+        <span class="subtitle">해시테이블 시각화 전화번호부</span>
+      </div>
+      <div class="controls">
+        <div class="control-group">
+          <label for="table-size">크기</label>
+          <select id="table-size">
+            <option value="5">5</option>
+            <option value="7" selected>7</option>
+            <option value="11">11</option>
+            <option value="13">13</option>
+            <option value="17">17</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="speed-slider">속도</label>
+          <input type="range" id="speed-slider" min="0.25" max="3" step="0.25" value="1">
+          <span id="speed-value">1x</span>
+        </div>
+        <button type="button" id="btn-sample">샘플 데이터</button>
+        <button type="button" id="btn-reset" class="btn-danger">초기화</button>
+      </div>
+    </header>
+
+    <div id="notification" class="notification"></div>
+
+    <main class="main-content">
+      <section class="contact-panel">
+        <h2>전화번호부</h2>
+        <form id="contact-form" class="contact-form">
+          <div class="form-row">
+            <input type="text" id="input-name" placeholder="이름 (Key)" autocomplete="off">
+            <input type="tel" id="input-phone" placeholder="전화번호 (Value)" autocomplete="off">
+          </div>
+          <div class="form-actions">
+            <button type="submit">추가</button>
+            <button type="button" id="btn-search">검색</button>
+            <button type="button" id="btn-delete">삭제</button>
+          </div>
+        </form>
+        <div id="contact-list" class="contact-list">
+          <div class="empty-contacts">
+            <span class="empty-icon">📱</span>
+            <p>연락처가 없습니다</p>
+            <p class="empty-hint">위 폼에서 연락처를 추가하세요</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bucket-panel">
+        <div class="stats-panel"></div>
+        <h2>버킷 배열 <small>Bucket Array</small></h2>
+        <div class="bucket-array"></div>
+      </section>
+
+      <section class="hash-panel">
+        <div class="hash-computation">
+          <div class="hash-title">해시 함수 <small>Hash Function</small></div>
+          <div class="hash-placeholder">연산을 수행하면 여기에 과정이 표시됩니다</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/HashTable.js"></script>
+  <script src="js/ContactBook.js"></script>
+  <script src="js/AnimationEngine.js"></script>
+  <script src="js/Visualizer.js"></script>
+  <script src="js/App.js"></script>
+</body>
+</html>
